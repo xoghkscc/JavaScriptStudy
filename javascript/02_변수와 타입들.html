@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="out"></div>
+
+    <script>
+        var a = 10;
+        let b = 12;
+        const c = 13;
+        const e1 = document.getElementById('out');
+        e1.innerHTML='a+b+c' + (a+b+c)+'입니다.';
+
+        d = 'abcd';
+
+        console.log(a+b+c+d);
+        // window.alert('a+b+c : '+(a+b+c));
+        
+
+        //JavaScript object(HashMap과 유사함)
+        const obj = {
+            name: '홍길동',
+            age: 15,
+        }
+        console.log(typeof obj);//object
+        console.log(typeof obj.name);//String
+        console.log(typeof obj.age);//number
+        console.log(obj.name);//홍길동
+        console.log(obj.age);//15
+
+        const arr = ['apple', 'banana', 'orange', 'kiwi', 'mango', 123];
+        console.log(arr);
+    </script>
+</body>
+</html>

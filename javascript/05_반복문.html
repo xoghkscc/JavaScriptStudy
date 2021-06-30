@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #gugudan {
+            display: grid;
+            grid-template-columns: repeat(9, 11.1111111111111%);
+            border: solid 1px black;
+            height: 500px;
+        }
+
+        #gugudan>* {
+            border: solid 1px black;
+        }
+n   
+        /* 구구단을 이쁘게 꾸미는 스타일시트를 작성해보세요 */
+    </style>
+</head>
+
+<body>
+    <h3>*반복문 : 자바스크립트에도 for와 while가 있다</h3>
+    <div id="gugudan">
+
+    </div>
+    <script>
+        //구구단을 생성하는 자바스크립트를 작성
+        var i = 9;
+        var gugu = document.getElementById("gugudan");
+        for (let index = 1; index < 10; index++) {
+            for (let index2 = 1; index2 < 10; index2++) {
+                gugu.innerHTML += "<div>" + index + " X " + index2 + " = " + (index * index2) + "</div>";
+            }
+        }
+    </script>
+</body>
+
+</html>
