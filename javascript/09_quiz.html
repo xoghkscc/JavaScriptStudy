@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <table id="filter_table" border="1">
+    </table>
+    <script>
+        //숙제 국/영/수 점수를 가진 랜덤 학생 100명을 자바스크립트 오브젝트로 생성하고
+        //1. map()을 이용해모든 학생들의 평균 점수 배열을 생성
+        //2. filter()를 이용해 평균 점수가 70점 이하인 학생들로 이루어진 배열을 생성하여
+        //html 테이블에 출력 (점수가 가장 낮은 학생은 빨간 글씨로 출력)
+
+        var school_data = [];
+
+        for (let index = 1; index <= 100; index++) {
+            school_data.push({
+                id: `${index}`, kor: `${parseInt(Math.random() * 101)}`,
+                eng: `${parseInt(Math.random() * 101)}`, mat: `${parseInt(Math.random() * 101)}`, avg: 0
+            })
+        }
+
+        var score_avg = school_data.map((value) => {
+            return Math.round((Number(value.kor) + Number(value.mat) + Number(value.eng)) / 3);
+        });
+
+        addAvg(school_data, score_avg);
+
+        var avg70upper = school_data.filter((value) => value.avg <= 70);
+
+        var result = "<tr><td>번호</td> <td>국어점수</td><td>영어점수</td><td>수학점수</td><td>평균</td></tr>";
+        var minScore = Math.min.apply(null, score_avg);//최소 평균 점수 구하는 코드
+        avg70upper.forEach(addTable);
+
+        document.getElementById("filter_table").innerHTML = result;
+
+        function addAvg(school_data, score_avg) {
+            for (let index = 0; index < school_data.length; index++) {
+                school_data[index].avg = score_avg[index];
+            }
+        }
+
+        function addTable(value) {
+            if (minScore === value.avg) {
+                result += `<tr style="background-color: red; color: white;"><td>${value.id}</td><td>${value.kor}</td><td>${value.eng}
+                    </td><td>${value.mat}</td><td>${value.avg}</td>`;
+            } else {
+                result += `<tr><td>${value.id}</td><td>${value.kor}</td><td>${value.eng}
+                    </td><td>${value.mat}</td><td>${value.avg}</td>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
