@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="warning">1</p>
+    <p class="warning">2</p>
+    <p class="warning">3</p>
+
+    <button id="waring_btn">경고!</button>
+    
+    <button id="waring_off">경고 끄기</button>
+
+
+
+    <script>
+        const nodes = document.getElementsByClassName("warning");
+        const warningBtn = document.getElementById('waring_btn');
+        const warningBtnoff = document.getElementById('waring_off');
+
+        warningBtn.addEventListener('click', (e) => { makeWaring(); });
+
+        warningBtnoff.addEventListener('click',function () {
+            
+            Array.from(nodes).forEach((value) => {
+                value.style.backgroundColor = '';
+                value.style.padding = '0px';
+                value.style.border = '';
+            });
+        });
+
+        function makeWaring() {
+            console.log(nodes);
+            for (let index = 0; index < nodes.length; index++) {
+                nodes[index].style.backgroundColor = 'yellow';
+                nodes[index].style.padding = '15px';
+                nodes[index].style.border = 'dashed 3px';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

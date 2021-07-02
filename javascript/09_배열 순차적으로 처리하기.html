@@ -22,12 +22,10 @@
         //배열의 모든 요소에 해당 함수를 적용한 새로운 배열을 생성한다
         
         const map_result = numbers.map(myMapFunction);
-        console.log(map_result);
 
         const map_result2 = numbers.map(function(value){
             return value * 3;
         });
-        console.log(map_result2);//numbers값 *3씩 된 배열을 생성
 
         const map_result3 = numbers.map(function(value, index){
             // return "<li>[" + index + "]" + value + "</li>";
@@ -35,7 +33,6 @@
             //== String.format("<li>[%s]%s</li>", index, value);
         });
 
-        console.log(map_result3)
 
         map_result3.forEach((value) => {
             document.getElementById("out").innerHTML += value;
@@ -46,9 +43,15 @@
         });
         const fulter_result2 = numbers.filter((value) => value > 40);
 
-        console.log(fulter_result);
-        console.log(fulter_result2);
 
+        var test_result = numbers.every((value) => value > 0);
+        console.log('test_result:'+test_result);
+
+
+        
+        
+        
+        
         function myFunction(value, index, array) {
             console.log('value: ', value);
             console.log('index: ', index);
@@ -63,6 +66,10 @@
         function myMapFunction(value, index, array) {
             return value+10;
         }
+
+        const numbers2 = [45, 1, 9, 100, 55, 22, -37];
+        var reduct_result = numbers2.reduce((acc, value) => acc + value, 0);
+        console.log('reduct_result :' + reduct_result);
 
        
     </script>

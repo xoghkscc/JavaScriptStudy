@@ -24,9 +24,14 @@
         for (let index = 1; index <= 100; index++) {
             school_data.push({
                 id: `${index}`, kor: `${parseInt(Math.random() * 101)}`,
-                eng: `${parseInt(Math.random() * 101)}`, mat: `${parseInt(Math.random() * 101)}`, avg: 0
+                eng: `${parseInt(Math.random() * 101)}`, mat: `${parseInt(Math.random() * 101)}`
             })
         }
+
+        school_data.forEach((value, index, array) =>
+            array[index].avg = (value.kor+value.eng+value.mat) / 3
+        )
+        console.log(school_data);
 
         var score_avg = school_data.map((value) => {
             return Math.round((Number(value.kor) + Number(value.mat) + Number(value.eng)) / 3);
@@ -39,8 +44,10 @@
         var result = "<tr><td>번호</td> <td>국어점수</td><td>영어점수</td><td>수학점수</td><td>평균</td></tr>";
         var minScore = Math.min.apply(null, score_avg);//최소 평균 점수 구하는 코드
         avg70upper.forEach(addTable);
+        var minScore2 = Math.min.apply(null, school_data.avg);//최소 평균 점수 구하는 코드
 
         document.getElementById("filter_table").innerHTML = result;
+
 
         function addAvg(school_data, score_avg) {
             for (let index = 0; index < school_data.length; index++) {
@@ -57,6 +64,8 @@
                     </td><td>${value.mat}</td><td>${value.avg}</td>`;
             }
         }
+
+
     </script>
 </body>
 
