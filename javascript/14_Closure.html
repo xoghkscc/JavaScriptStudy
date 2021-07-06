@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const test = (function () {
+            let a = 123;
+            return {
+                add: () => a += 1,
+                minus: () => a -= 1,
+            };
+        })();
+
+        console.log(test.minus());//122
+        console.log(test.add());//123
+        console.log(test.add());//124
+        
+        
+        const add = (function functionA() {
+            let x = 10;
+            return function() {
+                x += 1;
+                return x;
+            };
+        })();//x에 절대로 직접 접근할 수 없지만 값을 변화시킬 수는 있음(Private 효과)
+        // functionA(); //존재하지 않는 함수
+        // console.log(x);//존재하지 않는 변수
+        console.log(add());//11
+        console.log(add());//12
+        console.log(add());//13
+        console.log(add());//14
+
+    </script>
+</body>
+
+</html>

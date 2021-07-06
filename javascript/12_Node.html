@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="content">
+        <p>This is paragraph 1.</p>
+        <p>This is paragraph 2.</p>
+    </div>
+
+    <button onclick="duPush()">Push!</button>
+    <button onclick="doPop()">Pop!</button>
+
+    <script>
+        const content = document.getElementById("content");
+        const first_para = document.querySelector("#content > p:first-child");
+        const second_para = document.querySelector("#content > p:nth-child(2)");
+
+        function duPush() {
+            //요소를 객체지향적으로 추가(innerHTML은 막장)
+            const new_para = document.createElement("p");
+            const text_node = document.createTextNode("This is new paragraph");
+
+            new_para.setAttribute('id', 'abc');
+            new_para.setAttribute('class', 'abcclass');//setAttribute를 통해 클래스와 아이디를 줄 수 있다
+            
+            new_para.appendChild(text_node);
+            // content.insertBefore(new_para, first_para);//paragraph 1 앞에 내용 추가
+            // content.insertBefore(new_para, second_para);//paragraph 2 앞에 내용 추가
+            content.appendChild(new_para)//맨 뒤에
+        }
+
+        function doPop() {
+            const elemet_to_delete = document.querySelector('#content > :last-child')
+            elemet_to_delete.remove();//마지막 요소 지우기
+        }
+        
+    </script>
+</body>
+
+</html>

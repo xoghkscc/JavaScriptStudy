@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>#자바스크립트에서 클래스와 인스턴스 생성하기</h3>
+
+    
+    <script>
+        function Coffee(name, origin, price, size) {
+            this.name = name;
+            this.origin = origin;
+            this.price = price;
+            this.size = size;
+            this.calcSizePrice = function () {
+                switch (size.toLowerCase()) {
+                    case 'tall':
+                        return 0;
+                        break;
+                    case 'grande':
+                        return 500;
+                        break;
+                    case 'venti':
+                        return 1000;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        const americano = new Coffee('아메리카노','미국',2000,'venti');
+        const cafe_latte = new Coffee('카페라떼','브라질',3500,'grande');
+        //프로토 타입으로메서드 추가
+        Coffee.prototype.toString = function () {
+            return `${this.origin}산 ${this.name}`;
+        }
+        //오버라이딩
+        Coffee.prototype.calcPrice = function (num) {
+            return num*this.price;
+        }
+        console.log(americano.toString());
+        console.log(americano.calcPrice(3) + americano.calcSizePrice());//클래스 내부에 있는 함수를 이용
+
+        console.log(americano);
+        console.log(cafe_latte);
+    </script>
+    
+</body>
+</html>

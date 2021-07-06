@@ -17,17 +17,69 @@
     
     <button id="waring_off">경고 끄기</button>
 
+    <hr>
+
+    <img src="" width="300"><br>
+    <button id="prev_img">Prev</button>
+    <button id="next_img">Next</button>
+
 
 
     <script>
+
+        const img_path_list = [
+            '../image/dog1.jpg',
+            '../image/dog2.jpg',
+            '../image/dog3.jpg'
+        ];
+
+        const img_nodes = document.getElementsByTagName("img");
+        Array.from(img_nodes).forEach((value) => {
+            value.src=`${img_path_list[0]}`
+        })
+        const prev_img_nodes = document.getElementById("prev_img");
+        const next_img_nodes = document.getElementById("next_img");
+
+        prev_img_nodes.addEventListener('click', (e) => {
+            Array.from(img_nodes).forEach((value) => {
+                const img_src = value.src;
+
+                for (let index = 0; index < img_path_list.length; index++) {
+                    if(img_src.slice(31, 35) === img_path_list[index].slice(9, 13)){
+                        if(index === 0){
+                            value.src=img_path_list[2];
+                        }else{
+                            value.src=`${img_path_list[index-1]}`
+                        }
+                    }
+                }
+            })
+        })
+        next_img_nodes.addEventListener('click', (e) => {
+            Array.from(img_nodes).forEach((value) => {
+                const img_src = value.src;
+                for (let index = 0; index < img_path_list.length; index++) {
+                    if(img_src === `http://192.168.0.24:5500/image/dog${index+1}.jpg`){
+                        if(index === 2){
+                            value.src=`${img_path_list[0]}`
+                        }else{
+                            value.src=`${img_path_list[index+1]}`
+                        }
+                    }
+                }
+            })
+        })
+        
         const nodes = document.getElementsByClassName("warning");
         const warningBtn = document.getElementById('waring_btn');
         const warningBtnoff = document.getElementById('waring_off');
 
-        warningBtn.addEventListener('click', (e) => { makeWaring(); });
+        const nodes2 = document.getElementsByTagName("p");
+        
+        warningBtn.addEventListener('click', (e) => { makeWaring(e); });
 
-        warningBtnoff.addEventListener('click',function () {
-            
+        warningBtnoff.addEventListener('click',function (e) {
+            e.preventDefault();
             Array.from(nodes).forEach((value) => {
                 value.style.backgroundColor = '';
                 value.style.padding = '0px';
@@ -35,13 +87,19 @@
             });
         });
 
-        function makeWaring() {
-            console.log(nodes);
-            for (let index = 0; index < nodes.length; index++) {
-                nodes[index].style.backgroundColor = 'yellow';
-                nodes[index].style.padding = '15px';
-                nodes[index].style.border = 'dashed 3px';
-            }
+        function makeWaring(e) {
+            // for (let index = 0; index < nodes.length; index++) {
+            //     nodes[index].style.backgroundColor = 'yellow';
+            //     nodes[index].style.padding = '15px';
+            //     nodes[index].style.border = 'dashed 3px';
+            // }
+            
+            Array.from(nodes2).forEach((value) =>{
+                value.style.backgroundColor = 'yellow';
+                value.style.padding = '15px';
+                value.style.border = 'dashed 3px';
+
+            })
         }
 
     </script>
