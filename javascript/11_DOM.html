@@ -27,6 +27,14 @@
 
     <script>
 
+        const a = document.getElementsByClassName("warning");
+        console.log('데헷 : '+a[0].getAttribute("class"));//warning
+        a[0].setAttribute('id', 'warning2')//id라는 요소를 추가
+        console.log('데헷 : '+a[0].getAttribute("id"));//warning2
+        a[0].setAttribute('id', 'warning3')//id라는 요소 수정
+        console.log('데헷 : '+a[0].getAttribute("id"));//warning3
+        //그러나 class라는 요소는 처음부터 박혀있기 때문에 수정이 안됨
+
         const img_path_list = [
             '../image/dog1.jpg',
             '../image/dog2.jpg',
