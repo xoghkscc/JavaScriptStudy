@@ -39,15 +39,19 @@
  * splice(start_index, delete_count, 넣고 싶은 값들 …)
  * sort : 기본적으로는 문자열 오름차순으로 정렬
  ```C
-ㅇㅁㄴㅇㅁㄴ
+ 다음 책들을 출판년도 순으로 정렬해보세요.
+books = [
+    {name: '수학의 정석', pub_year: 2016},
+    {name: '자바의 정석', pub_year: 2020},
+    {name: '수학 익힘책', pub_year: 1995},
+ ]
+  books.sort(function(a, b){
+      return a.pub_year-b.pub_year;
+  });
+ 
 ```
+		* 이때 숫자 정렬은 숫자 타입 Comparator를 달아줘야 함
  
  
- 
- 이런 식으로도 가능
-	reverse : 존재하는 배열의 순서만 거꾸로 바꿈 (정렬기능 없음)
-이때 숫자 정렬은 숫자 타입 Comparator를 달아줘야 함
- 
-function을 내부에 쓸 때는 이름을 생략해도 됨
 
 
