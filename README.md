@@ -198,11 +198,11 @@ Array.from(img_nodes).forEach((value) => {
 <script>
 
 	const a = document.getElementsByClassName("warning");
-	console.log('데헷 : '+a[0].getAttribute("class"));//warning
+	console.log('class : '+a[0].getAttribute("class"));//warning
 	a[0].setAttribute('id', 'warning2')//id라는 요소를 추가
-	console.log('데헷 : '+a[0].getAttribute("id"));//warning2
+	console.log('id : '+a[0].getAttribute("id"));//warning2
 	a[0].setAttribute('id', 'warning3')//id라는 요소 수정
-	console.log('데헷 : '+a[0].getAttribute("id"));//warning3
+	console.log('id : '+a[0].getAttribute("id"));//warning3
 ```	
 ### 9_Node
 * document에 있는 모든 것은 Node다
