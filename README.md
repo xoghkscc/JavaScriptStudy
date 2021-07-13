@@ -349,3 +349,14 @@ var interval = setInterval(() => {
 * Key:Value 형태	
 * 로컬 스토리지는 웹 브라우저를 종료하더라도 데이터가 유지된다
 * 세션 스토리지는 웹 브라우저를 종료하면 데이터가 삭제된다
+### 15_DATA 속성
+#### data-* : 해당 속성에 저장한 값은 자바스크립트에서 꺼낼 용도로 설정해 놓는다.
+```C
+<article id="electriccars" data-columns="3" data-index-number="12314" data-parent="cars"> </article>
+
+var article = document.getElementById('electriccars'); 
+article.dataset.columns // "3" 
+article.dataset.indexNumber // "12314" 
+article.dataset.parent // "cars"
+```
+#### 즉 data-name은 element.dataset.name으로 꺼낼 수 있고 data-name-index는 element.dataset.nameIndex로 꺼낼 수 있다.
